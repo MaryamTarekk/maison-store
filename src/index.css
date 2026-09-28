@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f9f6ef;
+  color: #241c18;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── RTL Arabic Fonts ─── */
+[dir="rtl"] body {
+  font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+}
+
+[dir="rtl"] .font-serif {
+  font-family: 'Amiri', 'Playfair Display', Georgia, serif !important;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+/* ── Text Selection ─── */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* ── RTL Layout Fixes ─── */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Fix search icon position in RTL */
+[dir="rtl"] .search-icon-pos {
+  left: auto;
+  right: 1rem;
+}
+
+[dir="rtl"] .search-input-pad {
+  padding-left: 1.25rem;
+  padding-right: 3rem;
+}
+
+/* Fix absolute-positioned badges/buttons in RTL */
+[dir="rtl"] .badge-start {
+  left: auto;
+  right: 0.75rem;
+}
+
+[dir="rtl"] .btn-end {
+  right: auto;
+  left: 0.75rem;
+}
+
+[dir="rtl"] .card-edit-btn {
+  right: auto;
+  left: 0.75rem;
+}
+
+[dir="rtl"] .hero-float-card {
+  left: auto;
+  right: 1rem;
+}
+
+@media (min-width: 640px) {
+  [dir="rtl"] .hero-float-card {
+    right: 2rem;
+  }
+}
+
+/* ── Responsive Improvements ─── */
+@media (max-width: 380px) {
+  .font-serif {
+    word-break: break-word;
+  }
+}
