@@ -15,12 +15,13 @@ const queryClient = new QueryClient({
 });
 
 async function enableMocking() {
-  // MSW is required because this project uses
-  // mocked API endpoints for products.
-
   const { worker } = await import("./mocks/browser");
 
   await worker.start({
+    serviceWorker: {
+      url: `${import.meta.env.BASE_URL}mockServiceWorker.js`,
+    },
+
     onUnhandledRequest: "bypass",
   });
 }
